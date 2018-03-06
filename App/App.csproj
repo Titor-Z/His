@@ -1,0 +1,713 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BD1F842B-B494-4F53-9795-D8376C818251}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>App</RootNamespace>
+    <AssemblyName>App</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CSkin">
+      <HintPath>..\..\第三方插件\CSkin 16.1.14.2\CSkin 2.0\CSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>bin\x86\Debug\dll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\DateHelper.cs" />
+    <Compile Include="Common\ParseCombobox.cs" />
+    <Compile Include="Common\ParseGrid.cs" />
+    <Compile Include="Common\ComboboxProvinceCityCounty.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Common\ComboboxProvinceCityCounty.Designer.cs">
+      <DependentUpon>ComboboxProvinceCityCounty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ConvertSpell.cs" />
+    <Compile Include="Common\StringHelper.cs" />
+    <Compile Include="Dictionary\ClsMenu.cs" />
+    <Compile Include="Dictionary\FrmCity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmCity.Designer.cs">
+      <DependentUpon>FrmCity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmCure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmCure.Designer.cs">
+      <DependentUpon>FrmCure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmCureEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmCureEdit.Designer.cs">
+      <DependentUpon>FrmCureEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmDrugStore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmDrugStore.Designer.cs">
+      <DependentUpon>FrmDrugStore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmDrugStoreEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmDrugStoreEdit.Designer.cs">
+      <DependentUpon>FrmDrugStoreEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmFint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmFint.Designer.cs">
+      <DependentUpon>FrmFint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmFintEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmFintEdit.Designer.cs">
+      <DependentUpon>FrmFintEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmPart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmPart.Designer.cs">
+      <DependentUpon>FrmPart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmPartEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmPartEdit.Designer.cs">
+      <DependentUpon>FrmPartEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmPayType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmPayType.Designer.cs">
+      <DependentUpon>FrmPayType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmPayTypeEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmPayTypeEdit.Designer.cs">
+      <DependentUpon>FrmPayTypeEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmSample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmSample.Designer.cs">
+      <DependentUpon>FrmSample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmSampleEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmSampleEdit.Designer.cs">
+      <DependentUpon>FrmSampleEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmUnit.Designer.cs">
+      <DependentUpon>FrmUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmUnitEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmUnitEdit.Designer.cs">
+      <DependentUpon>FrmUnitEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Examine\FrmExamine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Examine\FrmExamine.Designer.cs">
+      <DependentUpon>FrmExamine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guidance\FrmCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guidance\FrmCard.Designer.cs">
+      <DependentUpon>FrmCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guidance\FrmCardEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guidance\FrmCardEdit.Designer.cs">
+      <DependentUpon>FrmCardEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ModCardType.cs" />
+    <Compile Include="Model\ModCertificateType.cs" />
+    <Compile Include="Model\ModCity.cs" />
+    <Compile Include="Model\ModDrugStore.cs" />
+    <Compile Include="Model\ModEntity.cs" />
+    <Compile Include="Model\ModJobType.cs" />
+    <Compile Include="Model\ModCard.cs" />
+    <Compile Include="Model\ModRegisterType.cs" />
+    <Compile Include="Model\ModRelation.cs" />
+    <Compile Include="Model\ModReserver.cs" />
+    <Compile Include="Model\ModUserLevel.cs" />
+    <Compile Include="Model\ModUserSource.cs" />
+    <Compile Include="Model\ModUserType.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reserver\FrmReserver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reserver\FrmReserver.Designer.cs">
+      <DependentUpon>FrmReserver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reserver\FrmReserverEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reserver\FrmReserverEdit.Designer.cs">
+      <DependentUpon>FrmReserverEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmCardType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmCardType.Designer.cs">
+      <DependentUpon>FrmCardType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmCardTypeEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmCardTypeEdit.Designer.cs">
+      <DependentUpon>FrmCardTypeEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmCertificateType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmCertificateType.Designer.cs">
+      <DependentUpon>FrmCertificateType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmCertificateTypeEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmCertificateTypeEdit.Designer.cs">
+      <DependentUpon>FrmCertificateTypeEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmDepartment.Designer.cs">
+      <DependentUpon>FrmDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmDepartmentEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmDepartmentEdit.Designer.cs">
+      <DependentUpon>FrmDepartmentEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmDepartmentType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmDepartmentType.Designer.cs">
+      <DependentUpon>FrmDepartmentType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmDepartmentTypeEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmDepartmentTypeEdit.Designer.cs">
+      <DependentUpon>FrmDepartmentTypeEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmEntity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmEntity.Designer.cs">
+      <DependentUpon>FrmEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmEntityEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmEntityEdit.Designer.cs">
+      <DependentUpon>FrmEntityEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmHospital.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmHospital.Designer.cs">
+      <DependentUpon>FrmHospital.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmHospitalEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmHospitalEdit.Designer.cs">
+      <DependentUpon>FrmHospitalEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmJobType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmJobType.Designer.cs">
+      <DependentUpon>FrmJobType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmJobTypeEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmJobTypeEdit.Designer.cs">
+      <DependentUpon>FrmJobTypeEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmRegisterType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmRegisterType.Designer.cs">
+      <DependentUpon>FrmRegisterType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmRegisterTypeEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmRegisterTypeEdit.Designer.cs">
+      <DependentUpon>FrmRegisterTypeEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmRelation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmRelation.Designer.cs">
+      <DependentUpon>FrmRelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmRelationEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmRelationEdit.Designer.cs">
+      <DependentUpon>FrmRelationEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmRemarkTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmRemarkTemplate.Designer.cs">
+      <DependentUpon>FrmRemarkTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmRemarkTemplateEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmRemarkTemplateEdit.Designer.cs">
+      <DependentUpon>FrmRemarkTemplateEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmRole.Designer.cs">
+      <DependentUpon>FrmRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmRoleEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmRoleEdit.Designer.cs">
+      <DependentUpon>FrmRoleEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmSayTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmSayTemplate.Designer.cs">
+      <DependentUpon>FrmSayTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmSayTemplateEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmSayTemplateEdit.Designer.cs">
+      <DependentUpon>FrmSayTemplateEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmSmsTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmSmsTemplate.Designer.cs">
+      <DependentUpon>FrmSmsTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmSmsTemplateEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmSmsTemplateEdit.Designer.cs">
+      <DependentUpon>FrmSmsTemplateEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmUserLevel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmUserLevel.Designer.cs">
+      <DependentUpon>FrmUserLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmUserLevelEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmUserLevelEdit.Designer.cs">
+      <DependentUpon>FrmUserLevelEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmUserSource.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmUserSource.Designer.cs">
+      <DependentUpon>FrmUserSource.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmUserSourceEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmUserSourceEdit.Designer.cs">
+      <DependentUpon>FrmUserSourceEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmUserType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmUserType.Designer.cs">
+      <DependentUpon>FrmUserType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmUserTypeEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmUserTypeEdit.Designer.cs">
+      <DependentUpon>FrmUserTypeEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmWorker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmWorker.Designer.cs">
+      <DependentUpon>FrmWorker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmWorkerEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmWorkerEdit.Designer.cs">
+      <DependentUpon>FrmWorkerEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmWorkerType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmWorkerType.Designer.cs">
+      <DependentUpon>FrmWorkerType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\FrmWorkerTypeEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dictionary\FrmWorkerTypeEdit.Designer.cs">
+      <DependentUpon>FrmWorkerTypeEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\DbHelper.cs" />
+    <Compile Include="Common\Function.cs" />
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPassword.Designer.cs">
+      <DependentUpon>FrmPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ModDepartment.cs" />
+    <Compile Include="Model\ModDepartmentType.cs" />
+    <Compile Include="Model\ModHospital.cs" />
+    <Compile Include="Model\ModRemarkTemplate.cs" />
+    <Compile Include="Model\ModSayTemplate.cs" />
+    <Compile Include="Model\ModSmsTemplate.cs" />
+    <Compile Include="Model\ModWorker.cs" />
+    <Compile Include="Model\ModWorkerType.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Common\ComboboxProvinceCityCounty.resx">
+      <DependentUpon>ComboboxProvinceCityCounty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmCity.resx">
+      <DependentUpon>FrmCity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmCure.resx">
+      <DependentUpon>FrmCure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmCureEdit.resx">
+      <DependentUpon>FrmCureEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmDrugStore.resx">
+      <DependentUpon>FrmDrugStore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmDrugStoreEdit.resx">
+      <DependentUpon>FrmDrugStoreEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmFint.resx">
+      <DependentUpon>FrmFint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmFintEdit.resx">
+      <DependentUpon>FrmFintEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmPart.resx">
+      <DependentUpon>FrmPart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmPartEdit.resx">
+      <DependentUpon>FrmPartEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmPayType.resx">
+      <DependentUpon>FrmPayType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmPayTypeEdit.resx">
+      <DependentUpon>FrmPayTypeEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmSample.resx">
+      <DependentUpon>FrmSample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmSampleEdit.resx">
+      <DependentUpon>FrmSampleEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmUnit.resx">
+      <DependentUpon>FrmUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmUnitEdit.resx">
+      <DependentUpon>FrmUnitEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Examine\FrmExamine.resx">
+      <DependentUpon>FrmExamine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guidance\FrmCard.resx">
+      <DependentUpon>FrmCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guidance\FrmCardEdit.resx">
+      <DependentUpon>FrmCardEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reserver\FrmReserver.resx">
+      <DependentUpon>FrmReserver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reserver\FrmReserverEdit.resx">
+      <DependentUpon>FrmReserverEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmCardType.resx">
+      <DependentUpon>FrmCardType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmCardTypeEdit.resx">
+      <DependentUpon>FrmCardTypeEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmCertificateType.resx">
+      <DependentUpon>FrmCertificateType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmCertificateTypeEdit.resx">
+      <DependentUpon>FrmCertificateTypeEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmDepartment.resx">
+      <DependentUpon>FrmDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmDepartmentEdit.resx">
+      <DependentUpon>FrmDepartmentEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmDepartmentType.resx">
+      <DependentUpon>FrmDepartmentType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmDepartmentTypeEdit.resx">
+      <DependentUpon>FrmDepartmentTypeEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmEntity.resx">
+      <DependentUpon>FrmEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmEntityEdit.resx">
+      <DependentUpon>FrmEntityEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmHospital.resx">
+      <DependentUpon>FrmHospital.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmHospitalEdit.resx">
+      <DependentUpon>FrmHospitalEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmJobType.resx">
+      <DependentUpon>FrmJobType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmJobTypeEdit.resx">
+      <DependentUpon>FrmJobTypeEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmRegisterType.resx">
+      <DependentUpon>FrmRegisterType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmRegisterTypeEdit.resx">
+      <DependentUpon>FrmRegisterTypeEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmRelation.resx">
+      <DependentUpon>FrmRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmRelationEdit.resx">
+      <DependentUpon>FrmRelationEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmRemarkTemplate.resx">
+      <DependentUpon>FrmRemarkTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmRemarkTemplateEdit.resx">
+      <DependentUpon>FrmRemarkTemplateEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmRole.resx">
+      <DependentUpon>FrmRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmRoleEdit.resx">
+      <DependentUpon>FrmRoleEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmSayTemplate.resx">
+      <DependentUpon>FrmSayTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmSayTemplateEdit.resx">
+      <DependentUpon>FrmSayTemplateEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmSmsTemplate.resx">
+      <DependentUpon>FrmSmsTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmSmsTemplateEdit.resx">
+      <DependentUpon>FrmSmsTemplateEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmUserLevel.resx">
+      <DependentUpon>FrmUserLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmUserLevelEdit.resx">
+      <DependentUpon>FrmUserLevelEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmUserSource.resx">
+      <DependentUpon>FrmUserSource.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmUserSourceEdit.resx">
+      <DependentUpon>FrmUserSourceEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmUserType.resx">
+      <DependentUpon>FrmUserType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmUserTypeEdit.resx">
+      <DependentUpon>FrmUserTypeEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmWorker.resx">
+      <DependentUpon>FrmWorker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmWorkerEdit.resx">
+      <DependentUpon>FrmWorkerEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmWorkerType.resx">
+      <DependentUpon>FrmWorkerType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dictionary\FrmWorkerTypeEdit.resx">
+      <DependentUpon>FrmWorkerTypeEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPassword.resx">
+      <DependentUpon>FrmPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Resources\add.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assay\" />
+    <Folder Include="Cashier\" />
+    <Folder Include="Clinic\" />
+    <Folder Include="Cure\" />
+    <Folder Include="DrugHouse\" />
+    <Folder Include="DrugStore\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+    <None Include="images\login.jpg" />
+    <Content Include="logo.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
