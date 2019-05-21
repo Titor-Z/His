@@ -1,3 +1,4 @@
-# His
-爱眼医院His系统。
-第三个人进行编辑
+# Hospital Management System
+## Description
+This is the hospital management system, which only provides a part of the basic functions. 
+Do not use for commercial use, welcome support.
